@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "angular-cli-ghpages": "^1.0.0-rc.2",
     "guid-typescript": "^1.0.9",
     "jsj-components": "file:../jsj-components-workspace/dist/jsj-components/jsj-components-0.0.1.tgz",
     "rxjs": "~6.6.0",
