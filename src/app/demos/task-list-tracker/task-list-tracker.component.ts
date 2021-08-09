@@ -104,6 +104,13 @@ export class TaskListTrackerComponent implements OnInit, OnDestroy {
     }
   }
 
+  public onTaskClick(task: Task): void {
+    if(this.selectedList){
+      task.isCompleted = !task.isCompleted;
+      this.saveList();
+    }
+  }
+
   public onEditList(): void {
     const listIdx = this.allLists.findIndex(l => l.id === this.selectedList?.id);
     if(listIdx >= 0) {

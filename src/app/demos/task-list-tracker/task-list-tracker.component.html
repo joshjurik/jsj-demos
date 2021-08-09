@@ -30,7 +30,7 @@
                         <h3><i>No tasks created. Click the button below to add a new one.</i></h3>
                     </ng-container>
                     <ng-template #taskCards>
-                        <jsj-task-card *ngFor="let task of selectedList.tasks" [task]="task" (editTask)="onEditTask(task)" (deleteTask)="onDeleteTask(task)"></jsj-task-card>
+                        <jsj-task-card *ngFor="let task of selectedList.tasks" [task]="task" (editTask)="onEditTask(task)" (deleteTask)="onDeleteTask(task)" (taskClick)="onTaskClick(task)"></jsj-task-card>
                     </ng-template>
                 </mat-selection-list>
             </div>

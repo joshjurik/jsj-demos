@@ -12,6 +12,7 @@ export class TaskCardComponent implements OnInit {
 
   @Output() editTask: EventEmitter<void> = new EventEmitter();
   @Output() deleteTask: EventEmitter<void> = new EventEmitter();
+  @Output() taskClick: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
@@ -23,11 +24,12 @@ export class TaskCardComponent implements OnInit {
    * @return - void
    */
   public onTaskClick(): void {
-    if(this.task){
-      this.task.isCompleted = !this.task.isCompleted;
-    } else {
-      throw('Error: No task exists to set isCompleted flag'); 
-    }
+    this.taskClick.emit();
+    // if(this.task){
+    //   this.task.isCompleted = !this.task.isCompleted;
+    // } else {
+    //   throw('Error: No task exists to set isCompleted flag'); 
+    // }
   }
 
   /**
