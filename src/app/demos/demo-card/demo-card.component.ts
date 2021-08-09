@@ -14,7 +14,7 @@ export class DemoCardComponent implements OnInit {
   @Input() demoCardRoutePath: string = '';
   @Input() demoCardPreviewImgName: string = '';
 
-  private readonly imgLocBasePath: string = '../assets/images/';
+  private readonly imgLocBasePath: string = 'assets/images/';
 
   constructor(
     private router: Router
