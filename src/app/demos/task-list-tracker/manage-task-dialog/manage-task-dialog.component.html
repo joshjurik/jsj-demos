@@ -1,0 +1,13 @@
+<h1 mat-dialog-title *ngIf="data.editTask">Edit Task</h1>
+<h1 mat-dialog-title *ngIf="!data.editTask">Add Task</h1>
+<div mat-dialog-content>
+  <p>Enter a task</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Task Name</mat-label>
+    <input matInput [(ngModel)]="newTask.name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSaveTask()" cdkFocusInitial>Save</button>
+</div>

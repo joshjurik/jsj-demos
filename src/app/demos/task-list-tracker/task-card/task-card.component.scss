@@ -1,0 +1,31 @@
+.task-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    max-width: 90%;
+    cursor: pointer;
+
+    .completed-task {
+        text-decoration: line-through;
+    }
+}
+
+.action-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-width: 20%;
+    max-width: 20%;
+}
+
+.edit-task-btn {
+    background-color: rgb(116, 184, 161);
+    color: #fff;
+}
+
+.delete-task-btn {
+    background-color: rgb(184, 116, 116);
+    color: #fff;
+}

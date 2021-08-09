@@ -1,0 +1,13 @@
+<h1 mat-dialog-title *ngIf="data.editIndex && data.editIndex >= 0">Edit List</h1>
+<h1 mat-dialog-title *ngIf="!data.editIndex">Add List</h1>
+<div mat-dialog-content>
+  <p>Enter a name for your list</p>
+  <mat-form-field appearance="fill">
+    <mat-label>List Name</mat-label>
+    <input matInput [(ngModel)]="newList.name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSaveList()" cdkFocusInitial>Save</button>
+</div>

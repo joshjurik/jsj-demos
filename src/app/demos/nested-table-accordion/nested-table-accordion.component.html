@@ -1,0 +1,55 @@
+<div class="main-container">
+    <jsj-flat-button 
+        [btnType]="'button'"
+        [text]="isCurrent ? 'Switch to Completed' : 'Switch to Current'"
+        (handleBtnClick)="switchState()">
+    </jsj-flat-button>
+    <br/><br/>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let heading of getColumnHeadings()">
+            {{heading}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let activity of getActivityData(); let i = index">
+          <tr (click)="switchShowExtra(activity)" style="cursor:pointer;">
+            <td>{{activity.title}}</td>
+            <td>{{activity.activityType}}</td>
+            <td>{{activity.status}}</td>
+            <td *ngIf="!isCurrent">{{activity.dateCompleted | date:'shortDate'}}</td>
+            <td>{{activity.assignmentType}}</td>
+          </tr>
+          <tr *ngIf="activity.showExtra" style="background-color: #eee;">
+            <td colspan="5">
+              <div class="row" style="padding-left:15px">
+                <div class="col-4">
+                  <strong> Assignment Type </strong>
+                  <p>{{activity.assignmentType}}</p>
+                </div>
+                <div class="col-4">
+                  <strong> Force Assign </strong>
+                  <p>No</p>
+                </div>
+                <div class="col-4">
+                  <strong> Recurrence </strong>
+                  <p>None</p>
+                </div>
+              </div>
+              <div class="row" style="padding-left:15px">
+                <div class="col-12">
+                  <strong>Due Date Type</strong>
+                  <div>
+                    <p>None</p>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+</div>

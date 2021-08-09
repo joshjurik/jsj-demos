@@ -1,0 +1,53 @@
+<div class="top-button-container">
+    <button type="button" class="top-btn" (click)="onResetData()">Reset Data</button>
+    <button type="button" class="top-btn" (click)="onRandomizeData()">Populate with random data</button>
+</div>
+<div class="main-container">
+    <div class="task-list-tracker-container">
+        <div class="list-container">
+            <h1 class="title">Lists</h1>
+            <div class="list-menu">
+                <div class="list-menu-card" [ngClass]="{'selected' : isListSelected(list)}" *ngFor="let list of allLists" (click)="onListClick(list)">
+                    {{list.name}}
+                </div>
+            </div>
+            <div class="action-footer list-footer">
+                <jsj-flat-button 
+                    [btnType]="'button'"
+                    [text]="'Add new list'"
+                    (handleBtnClick)="onAddNewList()">
+                </jsj-flat-button>
+            </div>
+        </div>
+        <div class="task-container">
+            <div class="task-header">
+                <h1 class="title">Tasks</h1>
+                <mat-icon *ngIf="selectedList" aria-hidden="false" aria-label="list settings icon" class="settings-icon" [matMenuTriggerFor]="settingsMenu">settings</mat-icon>
+            </div>
+            <div class="list-menu">
+                <mat-selection-list [multiple]="false" *ngIf="selectedList">
+                    <ng-container *ngIf="(!selectedList.tasks || (selectedList.tasks && selectedList.tasks.length === 0));else taskCards">
+                        <h3><i>No tasks created. Click the button below to add a new one.</i></h3>
+                    </ng-container>
+                    <ng-template #taskCards>
+                        <jsj-task-card *ngFor="let task of selectedList.tasks" [task]="task" (editTask)="onEditTask(task)" (deleteTask)="onDeleteTask(task)"></jsj-task-card>
+                    </ng-template>
+                </mat-selection-list>
+            </div>
+            <div class="action-footer task-footer">
+                <jsj-round-button 
+                    [btnType]="'button'"
+                    [icon]="'add'"
+                    [isSmallBtn]="true"
+                    [isDisabled]="!selectedList"
+                    (handleBtnClick)="onAddNewTask()">
+                </jsj-round-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<mat-menu #settingsMenu="matMenu">
+    <button mat-menu-item (click)="onEditList()">Edit List</button>
+    <button mat-menu-item (click)="onDeleteList()">Delete List</button>
+</mat-menu>

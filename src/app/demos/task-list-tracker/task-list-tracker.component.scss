@@ -1,0 +1,139 @@
+// overall centered container
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+// container that holds the list and tasks
+.task-list-tracker-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 680px;
+}
+
+// left side elem that contains the lists
+.list-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    border-radius: 5px 0 0 5px;
+}
+
+// right side elem that contains the tasks for each list
+.task-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 0 5px 5px 0;
+}
+
+.task-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    .settings-icon {
+        color:rgb(116, 184, 161);
+        cursor: pointer;
+        padding: 10px;
+
+        &:hover {
+            background-color: rgba(0,0,0,.04);
+            border-radius: 50%;
+        }
+
+        &:active {
+            padding: 9px;
+        }
+    }
+}
+
+// scrollable menu elem
+.list-menu {
+    height: 550px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+      }
+       
+    &::-webkit-scrollbar-track {
+        display: hidden;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(116, 184, 161);
+    }
+}
+
+.action-footer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: 0;
+    align-items: center;
+
+    &.list-footer {
+        justify-content: center;
+    }
+
+    &.task-footer {
+        justify-content: flex-end;
+    }
+}
+
+.primary-btn {
+    background-color: rgb(116, 184, 161);
+    color: #fff;
+}
+.long-btn {
+    width: 50%;
+}
+
+.title {
+    color: rgb(116, 184, 161);
+}
+
+.list-menu-card {
+    padding: 20px;
+    margin-bottom: 10px;
+
+    &:hover {
+        background-color: rgba(0,0,0,.04);
+    }
+
+    &.selected {
+        background-color: rgba(0,0,0,.04);
+    }
+}
+
+.top-button-container {
+    padding: 10px;
+
+    .top-btn {
+        padding: 10px;
+        margin: 10px;
+        background-color: #fff;
+        color: #333;
+        border: 0;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(228, 228, 228)
+        }
+
+        &:active {
+            padding: 9px;
+        }
+    }
+}

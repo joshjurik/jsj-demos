@@ -1,0 +1,16 @@
+<mat-card class="demo-card" (click)="onDemoCardClick()">
+    <mat-card-header>
+      <mat-card-title>{{demoCardTitle}}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="tech-pill-container">
+            <div class="tech-pill" *ngFor="let tech of demoCardTech">{{tech}}</div>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="demoCardPreviewImgName" mat-card-image [src]="buildImgPath()" [alt]="getImgAltName()">
+    <mat-card-content>
+      <p>
+        {{demoCardDesc}}
+      </p>
+    </mat-card-content>
+  </mat-card>

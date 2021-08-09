@@ -1,0 +1,13 @@
+<ng-container *ngIf="task">
+    <mat-card (click)="onTaskClick()" class="task-card">
+        <span [ngClass]="{ 'completed-task' : task.isCompleted }">{{task.name}}</span>
+        <div class="action-btn-container">
+            <button mat-icon-button (click)="onEditTaskClick($event)" class="edit-task-btn">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onDeleteTaskClick($event)" class="delete-task-btn">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+</ng-container>

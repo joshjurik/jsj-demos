@@ -1,0 +1,10 @@
+<div class="main-container">
+    <jsj-demo-card 
+        *ngFor="let project of projects"
+        [demoCardTitle]="project.title"
+        [demoCardDesc]="project.desc"
+        [demoCardTech]="project.tech"
+        [demoCardRoutePath]="project.routePath"
+        [demoCardPreviewImgName]="project.previewImgName">
+    </jsj-demo-card>
+</div>
