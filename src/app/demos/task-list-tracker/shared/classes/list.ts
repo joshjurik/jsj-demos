@@ -6,9 +6,22 @@ export class List {
     public name: string;
     public tasks: Task[];
 
-    constructor() {
-        this.id = Guid.create();
-        this.name = '';
-        this.tasks = [];
+    constructor(id: Guid = Guid.create(), name: string = '', tasks: Task[] = []) {
+        this.id = id;
+        this.name = name;
+        this.tasks = tasks;
+    }
+
+    clone(): List {
+        const list = new List();
+        list.id = this.id;
+        list.name = this.name;
+
+        if(this.tasks && this.tasks.length > 0) {
+            list.tasks = this.tasks.map(t => t.clone());
+        }
+
+        return list;
+
     }
 }

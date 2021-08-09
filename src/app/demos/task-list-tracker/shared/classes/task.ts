@@ -5,9 +5,17 @@ export class Task {
     public name: string;
     public isCompleted: boolean;
 
-    constructor() {
-        this.id = Guid.create();
-        this.name = '';
-        this.isCompleted = false;
+    constructor(id: Guid = Guid.create(), name: string = '', isCompleted: boolean = false) {
+        this.id = id;
+        this.name = name;
+        this.isCompleted = isCompleted;
+    }
+
+    clone(): Task {
+        const task = new Task();
+        task.id = this.id;
+        task.name = this.name;
+        task.isCompleted = this.isCompleted;
+        return task;
     }
 }

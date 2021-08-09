@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { List } from '../shared/classes/list';
+import { Task } from '../shared/classes/task';
 import { TaskListTrackerService } from '../task-list-tracker.service';
 
 @Component({
@@ -24,7 +25,17 @@ export class ManageListDialogComponent implements OnInit {
   public ngOnInit(): void {
     // explicit check because 0 is falsey
     if(typeof this.data.editIndex !== 'undefined') {
-      this.newList = this.data.currentLists[this.data.editIndex];
+      // angular material dialog apparently dynamically casts the obj
+      // so it 'loses its type' - reinstantiate it here before cloning
+      this.data.currentLists[this.data.editIndex] = new List(
+        this.data.currentLists[this.data.editIndex].id,
+        this.data.currentLists[this.data.editIndex].name,
+        this.data.currentLists[this.data.editIndex].tasks.map(t => t =
+          new Task(t.id, t.name, t.isCompleted)
+        )
+      );
+
+      this.newList = this.data.currentLists[this.data.editIndex].clone();
     }
   }
 
