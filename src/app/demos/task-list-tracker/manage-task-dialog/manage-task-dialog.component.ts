@@ -26,7 +26,14 @@ export class ManageTaskDialogComponent implements OnInit {
 
   public ngOnInit(): void {
     if(this.data.editTask){
-      this.newTask = this.data.editTask;
+      // angular material dialog apparently dynamically casts the obj
+      // so it 'loses its type' - reinstantiate it here before cloning
+      this.data.editTask = new Task(
+        this.data.editTask.id,
+        this.data.editTask.name,
+        this.data.editTask.isCompleted
+      );
+      this.newTask = this.data.editTask.clone();
     }
   }
 

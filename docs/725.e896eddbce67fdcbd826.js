@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjsj_demos=self.webpackChunkjsj_demos||[]).push([[725],{725:(u,n,e)=>{e.r(n),e.d(n,{NestedTableAccordionModule:()=>l});var s=e(8583),c=e(7901),d=e(7716);let l=(()=>{class o{}return o.\u0275fac=function(a){return new(a||o)},o.\u0275mod=d.oAB({type:o}),o.\u0275inj=d.cJS({imports:[[s.ez,c.nZ]]}),o})()}}]);
