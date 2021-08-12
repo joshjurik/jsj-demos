@@ -1,6 +1,7 @@
 # JsjDemos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+Demo site of Angular projects. Uses the jsj-components-workspace library. Eventually I would like to upload all of my code examples to it so they are all in one place.
+Deployed app: https://joshjurik.github.io/jsj-demos/
 
 ## Development server
 
